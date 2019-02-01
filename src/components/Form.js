@@ -1,9 +1,9 @@
-// Code ControlledInput Component Here
-import React from 'react'
+import React from 'react';
 
-class ControlledInput extends React.Component {
+class Form extends React.Component{
   state = {
-    value:''
+    firstName: 'Joe',
+    lastName: 'Henry'
   }
 
   handleFirstNameChange = event =>{
@@ -16,30 +16,22 @@ class ControlledInput extends React.Component {
   handleLastNameChange = event =>{
     console.log('last name',event.target.value)
     this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
+      lastName: event.target.value
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    this.sendFormDataSomwhere(this.state)
-  }
+
 
   render(){
-
-    return (
+    return(
       <form>
       <input type="text"
       id="firstName"
       onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName}/>
       <input type="text"
       id="lastName"
-      onChange={event => this.handleLastNameChange(event)} value={this.state.lastName}/>
+      onChange={event => this.handleLastNameChange(event)} value={this.state.lastName}
+      value={this.state.lastName}/>
 
       <textarea placeholder="hello"/>
       <input type="checkbox"/>
@@ -53,4 +45,4 @@ class ControlledInput extends React.Component {
   }
 }
 
-export default ControlledInput
+export default Form
